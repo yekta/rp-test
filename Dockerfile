@@ -4,7 +4,7 @@ ADD . .
 RUN apt-get update && apt-get -y install git
 RUN python3 -m pip install virtualenv --no-cache-dir
 RUN python3 -m virtualenv venv
-RUN . venv/bin/activate && pip install -r requirements.txt --no-cache-dir && deactivate
+RUN pip install -r requirements.txt --no-cache-dir
 RUN python3 models/download.py
 
-CMD . venv/bin/activate && exec python main.py
+CMD ["python", "-u", "/main.py" ]
