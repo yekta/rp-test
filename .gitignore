@@ -1,0 +1,4 @@
+# all DS store files
+.DS_Store
+# all env files
+.env
