@@ -1,12 +1,15 @@
 import runpod
 from models.setup import setup
+import time
 
 models_pack = setup()
 
 
 def handler(event):
     print(event)
-    # do the things
+
+    s = time.time()
+    print("🎨 Generating image")
     prompt = event["input"]["prompt"]
     kandinsky = models_pack.kandinsky
     prior_pipe = kandinsky["prior"]
@@ -23,6 +26,8 @@ def handler(event):
         height=768,
         width=768,
     ).images[0]
+    e = time.time()
+    print(f"✅ Generated image in: {round(e-s, 2)} seconds")
 
     return image
 
