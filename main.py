@@ -11,6 +11,11 @@ def handler(event):
     s = time.time()
     print("🎨 Generating image")
     prompt = event["input"]["prompt"]
+    width = event["input"]["width"]
+    height = event["input"]["height"]
+    num_inference_steps = event["input"]["num_inference_steps"]
+    num_images_per_prompt = event["input"]["num_images_per_prompt"]
+    guidance_scale = event["input"]["guidance_scale"]
     kandinsky = models_pack.kandinsky
     prior_pipe = kandinsky["prior"]
     t2i_pipe = kandinsky["text2img"]
@@ -23,13 +28,16 @@ def handler(event):
         prompt,
         image_embeds=image_embeds,
         negative_image_embeds=negative_image_embeds,
-        height=768,
-        width=768,
+        width=width,
+        height=height,
+        num_inference_steps=num_inference_steps,
+        num_images_per_prompt=num_images_per_prompt,
+        guidance_scale=guidance_scale,
     ).images[0]
     e = time.time()
     print(f"✅ Generated image in: {round(e-s, 2)} seconds")
 
-    return image
+    return "Done"
 
 
 runpod.serverless.start({"handler": handler})
