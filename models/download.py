@@ -2,7 +2,8 @@ import torch
 from diffusers import (
     DiffusionPipeline,
 )
-from .constants import MODEL_CACHE
+
+MODEL_CACHE = "MODELS_CACHE"
 
 t2i_pipe = DiffusionPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-1",
