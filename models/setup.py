@@ -3,7 +3,7 @@ from diffusers import (
     DiffusionPipeline,
 )
 import torch
-from constants import MODEL_CACHE
+from .constants import MODEL_CACHE
 
 
 class ModelsPack:
