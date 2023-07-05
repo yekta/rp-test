@@ -2,7 +2,7 @@ import runpod
 from package.setup import setup
 import time
 
-models_pack = setup()
+pack = setup()
 
 
 def handler(event):
@@ -16,7 +16,8 @@ def handler(event):
     num_inference_steps = event["input"]["num_inference_steps"]
     num_images_per_prompt = event["input"]["num_images_per_prompt"]
     guidance_scale = event["input"]["guidance_scale"]
-    kandinsky = models_pack.kandinsky
+
+    kandinsky = pack.kandinsky
     prior_pipe = kandinsky["prior"]
     t2i_pipe = kandinsky["text2img"]
 
