@@ -20,6 +20,7 @@ def handler(event):
     text_2 = event["input"]["text_2"]
     translated_text_1 = translate_text(
         text=text_1,
+        text_flores=None,
         detector=pack.detector,
         model=pack.translator,
         tokenizer=pack.tokenizer,
@@ -30,6 +31,7 @@ def handler(event):
     )
     translated_text_2 = translate_text(
         text=text_2,
+        text_flores=None,
         detector=pack.detector,
         model=pack.translator,
         tokenizer=pack.tokenizer,
