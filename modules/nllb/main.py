@@ -16,7 +16,6 @@ def handler(event):
 
     s = time.time()
     print("💬 Translating text...")
-    output_strings = []
     text_1 = event["input"]["text_1"]
     text_2 = event["input"]["text_2"]
     translated_text_1 = translate_text(
@@ -39,13 +38,11 @@ def handler(event):
         detected_confidence_score_min=DETECTED_CONFIDENCE_SCORE_MIN,
         label="Text 2",
     )
-    output_strings.append(translated_text_1)
-    output_strings.append(translated_text_2)
 
     e = time.time()
     print(f"✅ Translated text in: {round(e-s, 2)} seconds")
 
-    return {"output": output_strings}
+    return f"{translated_text_1} | {translated_text_2}"
 
 
 runpod.serverless.start({"handler": handler})
