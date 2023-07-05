@@ -2,3 +2,4 @@
 .DS_Store
 # all env files
 .env
+__pycache__

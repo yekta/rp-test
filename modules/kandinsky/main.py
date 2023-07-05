@@ -1,5 +1,5 @@
 import runpod
-from .setup import setup
+from package.setup import setup
 import time
 
 models_pack = setup()
