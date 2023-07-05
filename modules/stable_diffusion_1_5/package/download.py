@@ -14,7 +14,7 @@ if hf_token is not None:
     print(f"✅ Logged in to HuggingFace")
 
 t2i_pipe = DiffusionPipeline.from_pretrained(
-    "proximasanfinetuning/luna-diffusion",
+    "runwayml/stable-diffusion-v1-5",
     torch_dtype=torch.float16,
     cache_dir=MODEL_CACHE,
 )

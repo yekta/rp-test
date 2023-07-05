@@ -15,14 +15,14 @@ class Pack:
 
 
 def setup() -> Pack:
-    print("⏳ Loading Stable Diffusion v1.5")
+    print("⏳ Loading Luna Diffusion v1.5")
     t2i_pipe = DiffusionPipeline.from_pretrained(
-        "runwayml/stable-diffusion-v1-5",
+        "proximasanfinetuning/luna-diffusion",
         torch_dtype=torch.float16,
         cache_dir=MODEL_CACHE,
     )
     t2i_pipe.to("cuda")
-    print("✅ Loaded Stable Diffusion v1.5")
+    print("✅ Loaded Luna Diffusion v1.5")
     return Pack(
         pipe=t2i_pipe,
     )
